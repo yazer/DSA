@@ -1,3 +1,5 @@
+
+
 def binary_search(A, B):
     start = 0
     end = len(A) - 1
@@ -10,7 +12,6 @@ def binary_search(A, B):
             start = mid + 1
         else:
             end = mid - 1
-    
     return -1
 
 
