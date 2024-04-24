@@ -31,4 +31,4 @@ jobs:
 
       - name: Upload file to S3 bucket
         run: |
-          ls
+          pwd
