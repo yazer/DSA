@@ -31,5 +31,6 @@ jobs:
 
       - name: Upload file to S3 bucket
         run: |
-          git ls-files
+          cd $GITHUB_WORKSPACE
+          ls -R
           
