@@ -22,8 +22,8 @@ jobs:
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region <your-AWS-region>
+          aws configure set region eu-west-1
 
       - name: List objects in S3 bucket
         run: |
-          aws s3 ls s3://<bucket-name>/
+          aws s3 ls
