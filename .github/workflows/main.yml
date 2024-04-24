@@ -1,4 +1,4 @@
-name: Echo .env File
+name: Extract script_path
 
 on:
   push:
@@ -6,11 +6,13 @@ on:
       - main
 
 jobs:
-  echo-env-file:
+  extract-script-path:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Echo .env file
-        run: cat $GITHUB_WORKSPACE/.env
+      - name: Extract script_path
+        run: |
+          script_path=$(bash extract_script_path.sh)
+          echo "The value of script_path is $script_path"
