@@ -31,6 +31,5 @@ jobs:
 
       - name: Upload file to S3 bucket
         run: |
-          cd $GITHUB_WORKSPACE
-          ls -R
+          echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
           
