@@ -1,37 +1,16 @@
-name: Upload File to S3 Bucket
+name: Echo .env File
 
 on:
   push:
     branches:
-      - main  # adjust branch name as needed
+      - main
 
 jobs:
-  upload-file:
+  echo-env-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.8'  # Specify your desired Python version
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          pip install awscli --upgrade --user
-          pip install python-dotenv
-
-      # - name: Load environment variables
-      #   run: |
-      #     source .env
-
-      - name: Set up AWS credentials
-        run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region eu-west-1
-
-      - name: Upload file to S3 bucket
-        run: |
-          # cat $GITHUB_WORKSPACE/
-          cd ../
-          pwd
-          
+      - name: Echo .env file
+        run: cat $GITHUB_WORKSPACE/.env
