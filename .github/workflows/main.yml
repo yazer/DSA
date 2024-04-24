@@ -31,5 +31,5 @@ jobs:
 
       - name: Upload file to S3 bucket
         run: |
-          echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+          cat $GITHUB_WORKSPACE/.env
           
