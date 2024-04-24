@@ -1,4 +1,4 @@
-name: Create Folder in S3 Bucket
+name: Upload File to S3 Bucket
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main  # adjust branch name as needed
 
 jobs:
-  create-folder:
+  upload-file:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
@@ -29,6 +29,6 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set region eu-west-1
 
-      - name: Create folder in S3 bucket
+      - name: Upload file to S3 bucket
         run: |
-          aws s3api put-object --bucket aws-de-demo-bkt --key $F/
+          aws s3 cp Easy/two-pointers/binary_search.py s3://aws-de-demo-bkt/abcd/
