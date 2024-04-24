@@ -16,3 +16,4 @@ jobs:
         run: |
           script_path=$(grep '^script_path=' .env | awk -F '=' '{print $2}')
           echo "The value of script_path is $script_path"
+          ls
