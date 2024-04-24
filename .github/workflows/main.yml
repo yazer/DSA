@@ -23,4 +23,4 @@ jobs:
           script_path=$(grep '^script_path=' .env | awk -F '=' '{print $2}')
           echo "The value of script_path is $script_path"
           aws s3 ls
-          aws s3 cp Easy/two-pointers/binary_search.py s3://aws-de-demo-bkt/$script_path
+          aws s3 cp DSA/DSA?Easy/two-pointers/binary_search.py s3://aws-de-demo-bkt/$script_path
