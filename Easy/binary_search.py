@@ -3,6 +3,9 @@
 
 
 
+
+
+
 def binary_search(A, B):
     start = 0
     end = len(A) - 1
