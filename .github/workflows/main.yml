@@ -1,18 +1,24 @@
-name: Extract script_path
+name: Move File to S3 Bucket
 
 on:
   push:
     branches:
-      - main
-
+      - main 
 jobs:
-  extract-script-path:
+  move-file-to-s3:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Extract script_path
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1  
+
+      - name: Move file to S3 bucket
         run: |
           script_path=$(grep '^script_path=' .env | awk -F '=' '{print $2}')
           echo "The value of script_path is $script_path"
