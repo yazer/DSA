@@ -24,5 +24,6 @@ jobs:
           echo "The value of script_path is $script_path"
           aws s3 ls
           echo "Repository directory: $GITHUB_WORKSPACE"
-          cd $GITHUB_WORKSPACE
+          # cd $GITHUB_WORKSPACE
+          cat $GITHUB_WORKSPACE/README.md
           aws s3 cp Easy/two-pointers/binary_search.py s3://aws-de-demo-bkt/$script_path
