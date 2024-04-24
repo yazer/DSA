@@ -31,4 +31,4 @@ jobs:
 
       - name: Upload file to S3 bucket
         run: |
-          aws s3 cp Easy/two-pointers/binary_search.py s3://aws-de-demo-bkt/abcd/
+          ls
