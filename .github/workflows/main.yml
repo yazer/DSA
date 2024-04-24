@@ -25,4 +25,4 @@ jobs:
           aws s3 ls
           echo "Repository directory: $GITHUB_WORKSPACE"
           
-          aws s3 cp $GITHUB_WORKSPACE/README.md s3://aws-de-demo-bkt/$script_path
+          aws s3 cp $GITHUB_WORKSPACE/README.md s3://aws-de-demo-bkt/$script_path/
