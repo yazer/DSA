@@ -19,9 +19,9 @@ jobs:
           pip install awscli --upgrade --user
           pip install python-dotenv
 
-      - name: Load environment variables
-        run: |
-          source .env
+      # - name: Load environment variables
+      #   run: |
+      #     source .env
 
       - name: Set up AWS credentials
         run: |
