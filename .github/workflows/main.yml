@@ -9,12 +9,20 @@ jobs:
   list-s3:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Set up Python
+        uses: actions/setup-python@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
+          python-version: '3.x'  # Specify your desired Python version
+
+      - name: Install AWS CLI
+        run: |
+          pip install awscli --upgrade --user
+
+      - name: Set up AWS credentials
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region <your-AWS-region>
 
       - name: List objects in S3 bucket
         run: |
